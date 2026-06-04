@@ -1,0 +1,119 @@
+:root {
+  --cell-size: 100px;
+  --repeats: repeat(3, var(--cell-size));
+  --gap-squares: 10px;
+  --mar-bot: 6px;
+  --canvas-size: 400px; /* Базовый размер канваса */
+}
+
+@media (min-width: 100px) and (max-width: 200px) {
+  :root {
+      --canvas-size: 100px;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 300px) {
+  :root {
+      --canvas-size: 200px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 410px) {
+  :root {
+      --cell-size: 70px;
+      --repeats: repeat(3, var(--cell-size));
+      --gap-squares: 5px;
+      --mar-bot: 2px;
+      --canvas-size: 300px;
+  }
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to right, #74ebd5, #ACB6E5);
+  color: #333;
+  touch-action: manipulation; /* Разрешаем сенсорные события */
+}
+
+#tic-tac-toe-board {
+  display: grid;
+  grid-template-columns: var(--repeats);
+  grid-template-rows: var(--repeats);
+  gap: var(--gap-squares);
+}
+
+.cell {
+  background-color: #fff;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  margin: 0;
+  margin-bottom: var(--mar-bot);
+}
+
+.cell:hover {
+  background-color: #e3e3e3;
+}
+
+.game-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#resetButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#resetButton:hover {
+  background-color: #555;
+}
+
+#game-back a, .Btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+#game-back a:hover, .Btn:hover {
+  background-color: #555;
+}
+
+#snakeCanvas {
+  border: 2px solid #333;
+  width: var(--canvas-size, 400px);
+  height: var(--canvas-size, 400px);
+}
+
+#game-menu {
+  display: flex;
+  flex-direction: column;
+}
